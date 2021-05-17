@@ -116,7 +116,7 @@ function create-mono {
 		# Merge every branch from the sub repo into the mono repo, into a
 		# branch of the same name (create one if it doesn't exist).
 		remote-branches "$name" | while read branch; do
-			if git rev-parse -q --verify "$branch"; then
+			if git rev-parse -q --verify "$branch^{commit}"; then
 				# Branch already exists, just check it out (and clean up the working dir)
 				git checkout -q "$branch"
 				git checkout -q -- .
