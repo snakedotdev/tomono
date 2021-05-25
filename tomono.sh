@@ -129,7 +129,7 @@ function create-mono {
 				git commit -q --allow-empty -m "Root commit for $branch branch"
 			fi
 			git merge -q --no-commit -s ours "$name/$branch" --allow-unrelated-histories
-			git read-tree -m --prefix="$folder/" "$name/$branch"
+			git read-tree --prefix="$folder/" "$name/$branch"
 			git commit -q --no-verify --allow-empty -m "Merging $name to $branch"
 		done
 	done
